@@ -1,0 +1,22 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  color: #ccc; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+  ul li {
+    list-style: none; }
+
+button {
+  background: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer; }
+
+a {
+  text-decoration: none;
+  color: #222; }
