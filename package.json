@@ -1,0 +1,24 @@
+{
+  "name": "demo",
+  "version": "0.0.1",
+  "description": "this is for my demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daialihexiaoniu/my-project.git"
+  },
+  "author": "luxinli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daialihexiaoniu/my-project/issues"
+  },
+  "homepage": "https://github.com/daialihexiaoniu/my-project#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "node-sass": "^4.5.3"
+  }
+}
