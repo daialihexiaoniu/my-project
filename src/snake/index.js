@@ -1,12 +1,12 @@
 $(function () {
-    var dir = 1;//up:1 right:2 down:3 left:4
+    var dir = 2;//up:1 right:2 down:3 left:4
     var allTds = [];
     var ck =30;
     var k = 3;
     var she = [];
     var x = 0, y = k-1;
-
-
+    var ji = null;
+    var mark = 0;
 
     initMap();
 
@@ -25,11 +25,15 @@ $(function () {
         }
     })
 
+    $('#start').click(function () {
+        start()
+    })
+
     function initMap() {
-        for(var i=0; i< ck; i++) {
-            var tr = document.createElement('tr');
+        for(var i = 0; i < ck; i++) {
+            var tr = document.getElementById("container").insertRow(-1);;
             var trs = [];
-            for(var j=0; j<ck; j++) {
+            for(var j = 0; j < ck; j++) {
                 var td = document.createElement('td');
                 trs[j] = td;
                 tr.appendChild(td);
@@ -37,7 +41,49 @@ $(function () {
             $('#container').append(tr);
             allTds[i] = trs;
         }
+
+        for(var g = 0; g < k; g++) {
+            she[g] = allTds[0][g];
+            allTds[0][g].className = "hei";
+        }
     }
+
+    function hide(el) {
+        el[0].className = 'bai';
+    }
+
+    function show(el) {
+        el[el.length - 1].className = 'hei';
+    }
+
+    function start() {
+        console.log('start')
+        hide(she);
+        for(var o = 0; o < she.length; o++) {
+            she[o] = she[o + 1]
+        }
+        if (dir === 1) {
+            she[k-1] = allTds[x-1][y];
+            x-=1;
+        }
+        if (dir === 2) {
+            she[k-1] = allTds[x][y+1];
+            y+=1;
+        }
+        if (dir === 3) {
+            she[k-1] = allTds[x+1][y];
+            x+=1;
+        }
+        if (dir === 4) {
+            she[k - 1] = allTds[x][y-1];
+            y -=1;
+        }
+        show(she);
+        setTimeout(function() {
+            start()
+        }, 1000);
+    }
+
 });
 
 
