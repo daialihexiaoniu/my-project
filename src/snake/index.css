@@ -1,0 +1,14 @@
+#container {
+    border-collapse:collapse;
+}
+#container td{
+    width:15px;
+    height:15px;
+    border:1px solid grey;
+}
+.hei{
+    background:#000;
+}
+.bai{
+    background:#ffff;
+}
