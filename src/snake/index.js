@@ -63,25 +63,47 @@ $(function () {
             she[o] = she[o + 1]
         }
         if (dir === 1) {
-            she[k-1] = allTds[x-1][y];
-            x-=1;
+            if (x - 1 >= 0) {
+                she[k-1] = allTds[x-1][y];
+                x-=1;
+            } else {
+                alert('top')
+            }
         }
         if (dir === 2) {
-            she[k-1] = allTds[x][y+1];
-            y+=1;
+            if (y + 1 < ck) {
+                she[k-1] = allTds[x][y+1];
+                y+=1;
+            } else {
+                alert('right ')
+            }
         }
         if (dir === 3) {
-            she[k-1] = allTds[x+1][y];
-            x+=1;
+            if (x + 1 < ck) {
+                she[k-1] = allTds[x+1][y];
+                x+=1;
+            } else {
+                alert('bottom')
+            }
         }
         if (dir === 4) {
-            she[k - 1] = allTds[x][y-1];
-            y -=1;
+            if (y - 1 >= 0) {
+                she[k - 1] = allTds[x][y-1];
+                y -=1;
+            } else {
+                alert('left')
+            }
         }
         show(she);
         setTimeout(function() {
             start()
-        }, 1000);
+        }, 200);
+    }
+
+    function stop() {
+        if(ji !== null) {
+            clearTimeout(ji)
+        }
     }
 
 });
