@@ -1,0 +1,171 @@
+$width: 20vh;
+$pot-color: #e5a26b;
+$cacti-color: #98d30c;
+$flower-color: #e2641b;
+$eye-color: #464d5b;
+$cheek-color: #f2a4ca;
+
+body, html {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #cedeff;
+}
+
+.cacti {
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    position: absolute;
+    padding-top: $width*1.5;
+    .pot-top {
+        width: $width*1.5;
+        height: 0;
+        border-top: $width/4 solid darken($pot-color, 10);
+        border-left: $width/22 solid transparent;
+        border-right: $width/22 solid transparent;
+    }
+    .pot-body {
+        width: $width;
+        height: 0;
+        border-top: $width*0.85 solid $pot-color;
+        border-left: $width/5 solid transparent;
+        border-right: $width/5 solid transparent;
+    }
+    .pot-plate {
+        width: $width*1.15;
+        height: 0;
+        border-top: $width/5 solid darken($pot-color, 10);
+        border-left: $width/25 solid transparent;
+        border-right: $width/25 solid transparent;
+    }
+
+    .cacti-flower {
+        position: absolute;
+        top: 0;
+        left: $width*0.3 + $width/4;
+        height: $width/3;
+        width: $width/4;
+        border-radius: 0 100% 0 100%;
+        background-color: $flower-color;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: $width/4;
+            height: $width/3;
+            width: $width/4;
+            transform: rotate(70deg);
+            border-radius: 0 100% 0 100%;
+            background-color:  $flower-color;
+        }
+    }
+
+    .cacti-header {
+        position: absolute;
+        z-index: -1;
+        top: $width/3;
+        left: $width*0.1;
+        height: $width*1.5;
+        width: $width*1.4;
+        background-color: $cacti-color;
+        border-radius: 100%;
+        &:before {
+            content: "";
+            display: block;
+            height: $width * 1.5;
+            width: $width * 1.4 / 1.35;
+            border: solid $width/20 lighten($cacti-color, 25);
+            border-radius: 100%;
+            position: absolute;
+            left: $width * .125;
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            height: $width * 1.5;
+            width: $width * 1.4 / 3;
+            border: solid $width/20 lighten($cacti-color, 25);
+            border-radius: 100%;
+            position: absolute;
+            left: $width * .4;
+        }
+        .line {
+            position: absolute;
+            left: $width/20*13;
+            height: $width*1.5;
+            width: $width/20;
+            background-color: lighten($cacti-color, 25);
+        }
+        .eye {
+            position: absolute;
+            z-index: 1;
+            top: $width/2;
+            left: 0;
+            height: $width/2.5;
+            width: $width/2.5;
+            background-color: $eye-color;
+            border-radius: 100%;
+            &:before {
+                display: block;
+                position: absolute;
+                right: $width/12;
+                bottom: $width/20;
+                height: $width/12;
+                width: $width/12;
+                content: '';
+                background-color: #fff;
+                border-radius: 100%;
+            }
+            &:after {
+                display: block;
+                position: absolute;
+                right: $width/10;
+                bottom: $width/10;
+                height: $width/4;
+                width: $width/4;
+                content: '';
+                background-color: #fff;
+                border-radius: 100%;
+            }
+        }
+        .eye:last-of-type {
+            left: $width/1.75;
+        }
+        .cheek {
+            position: absolute;
+            top: $width/2 + $width/3;
+            left: -$width/10;
+            height: $width/8;
+            width: $width/3.5;
+            border-radius: 60%;
+            background-color: $cheek-color;
+            z-index:2;
+            &:after {
+                position: absolute;
+                left: $width/1.15;
+                height: $width/8;
+                width: $width/3.5;
+                border-radius: 60%;
+                background-color: $cheek-color;
+                z-index:2;
+                content: '';
+            }
+        }
+    }
+
+    .shadow {
+        position: absolute;
+        bottom: -$width/8;
+        right: -$width*.75;
+        height: $width/4;
+        width: $width*3;
+        background-color: $eye-color;
+        opacity: 0.25;
+        border-radius: 100%;
+        z-index: -2;
+    }
+}
