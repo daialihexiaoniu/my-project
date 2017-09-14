@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="page">
+    <p class="li-none" id="page2Txt">
+        This is test.This is test.This is test.This is test.This is test.This is test.This is test.This is test.This is test.This is test.
+    </p>
+    <div class="el-page2 li-none">
+        <h1 class="page2-title">公司介绍</h1>
+        <p class="fenge-solid"></p>
+        <p class="page2-txt" id="page2TxtShow"></p>
+    </div>
+</div>
+
+<script>
+    var page2Txt = document.getElementById('page2Txt'),
+        page2TxtShow = document.getElementById('page2TxtShow'),
+        i = 0,
+        timer = setInterval(function(){
+            page2TxtShow.innerHTML = page2Txt.innerHTML.substring(0, i);
+            i++;
+            if(page2TxtShow.innerHTML == page2Txt.innerHTML){
+                clearInterval(timer);
+            };
+        },60);
+</script>
+</body>
+</html>
