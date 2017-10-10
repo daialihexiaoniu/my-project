@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>5</title>
+    <style>
+        #chart {
+            border: 1px solid #ccc;
+        }
+        #chart path {
+            fill: transparent;
+            stroke: green;
+        }
+    </style>
+</head>
+<body>
+<svg id="chart" width="500" height="200"></svg>
+
+<script src="d3.js"></script>
+<script>
+    var data = [
+        { x: 0, y: 30 },
+        { x: 50, y: 20 },
+        { x: 100, y: 40 },
+        { x: 150, y: 80 },
+        { x: 200, y: 50 }
+    ]
+
+    var width = 500,height = 200,
+        xMax = d3.max(data, function(d) {return d.x}),
+        yMax = d3.max(data, function(d) {return d.y});
+
+    console.log('xMax',xMax)
+    console.log('yMax',yMax)
+
+    var xScale = d3.scaleLinear().domain([0, xMax]).range([20, width - 20])
+    var yScale = d3.scaleLinear().domain([0, yMax]).range([height - 20, 20])
+
+    var line = d3.line()
+        .x(function(d) {
+            return xScale(d.x)
+        })
+        .y(function(d) {
+            return yScale(d.y)
+        })
+        .curve(d3.curveCatmullRom.alpha(0.5))
+
+    d3.select('#chart')
+        .append('path')
+        .attr('stroke-width', 2)
+        .attr('d', line(data))
+</script>
+</body>
+</html>

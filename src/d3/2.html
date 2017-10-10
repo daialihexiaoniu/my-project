@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2</title>
+    <style>
+        #chart div {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 3px;
+        }
+    </style>
+</head>
+<body>
+<div id="chart"></div>
+
+
+
+<script src="d3.js"></script>
+<script>
+    var colorMap =d3.interpolateRgb(
+        d3.rgb('#d6e685'),
+        d3.rgb('#1e6823')
+    )
+
+    d3.select('#chart')
+        .selectAll("div")
+        .data([.2, .4, 0, 0, .13, .92])
+        .enter()
+        .append("div")
+        .style("background-color", function(d) {
+            return d === 0 ? '#eee' : colorMap(d);
+        })
+</script>
+</body>
+</html>
