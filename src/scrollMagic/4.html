@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="coat">
+        <div class="floor floor-2" id="animate1">
+            <div class="page-content">
+                <h1><img src="images/f2-biaoti.png"></h1>
+                <div class="core">
+                    <div class="piece piece-1"><img src="images/f2-zi.png"></div>
+                    <div class="piece piece-2">
+                        <div class="piece-2-1"><img src="images/f2-yuan-2.png"></div>
+                        <div class="piece-2-2" id="piece-2-2"><img src="images/f2-yuan-1.png"></div>
+                        <div class="piece-2-3"><img src="images/f2-yuan-3.png"></div>
+                    </div>
+                    <div class="piece piece-3"><img src="images/f2-ruan.png"></div>
+                    <div class="piece piece-4"><img src="images/f2-ying.png"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="ScrollMagic.js"></script>
+<!--<script type="text/javascript" src="./TimelineMax.min.js"></script>-->
+<script>
+    var controller = new ScrollMagic.Controller({
+        globalSceneOptions: {
+            triggerHook: 'onLeave'
+        }
+    });
+
+    new ScrollMagic.Scene({triggerElement: '.coat', duration: 1500})
+        .setPin('.page-content')
+        .addTo(controller);
+
+    var animateElem = document.getElementById("piece-2-2");
+    new ScrollMagic.Scene({triggerElement: ".coat", duration: 100})
+        .on("enter", function () {
+            // trigger animation by changing inline style.
+            animateElem.style.transform = "rotate(-45deg)";
+        })
+        .on("leave", function () {
+            // reset style
+            animateElem.style.transform = "";
+        })
+        .addTo(controller);
+
+</script>
+</body>
+</html>
