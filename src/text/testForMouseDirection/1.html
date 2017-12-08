@@ -10,22 +10,29 @@
             list-style: none;
         }
         ul.outer {
-            width: 20px;
+            width: 200px;
         }
-        ul > li {
+        ul.outer > li {
             height: 40px;
             border: 1px solid #ccc;
+            position: relative;
         }
-        ul > li:hover > ul {
+        ul.outer > li:hover > ul {
             display: block;
         }
-        ul > li > ul {
+        ul.outer > li > ul {
             display: none;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            width: 400px;
+            background: #fff;
+            border: 1px solid #aaa;
         }
     </style>
 </head>
 <body>
-    <ul.outer>
+    <ul class='outer'>
         <li>
             111111
             <ul>
