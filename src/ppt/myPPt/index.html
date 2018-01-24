@@ -24,13 +24,14 @@
             <p>Semantic HTML</p>
         </section>
         <section>
-            <h3>什么是html语义化？</h3>
-<p class="fragment fs-14">语义化是指根据内容的结构化（内容语义化），选择合适的标签（代码语义化），便于开发者阅读和写出更优雅的代码的同时，让浏览器的爬虫和机器很好的解析。</p>
+            <h3>什么是语义化？</h3>
+<p class="fragment fs-14">语义化是指根据内容的结构化（内容语义化），选择合适的标签（代码语义化），便于开发者阅读和写出更优雅的代码的同时，让浏览器的爬虫和机器很好的解析。简单的说就是让人和机器更好的读懂内容</p>
         </section>
         <section>
             <h3>为什么要html语义化？</h3>
             <ul>
-                <li class="fragment fs-14 texta-l">有利于SEO，有助于爬虫抓取更多的有效信息，爬虫是依赖于标签来确定上下文和各个关键字的权重。</li>
+                <li class="fragment fs-14 texta-l">有利于SEO，有助于爬虫抓取更多的有效信息。</li>
+ <!-- ，爬虫是依赖于标签来确定上下文和各个关键字的权重 -->
                 <li class="fragment fs-14 texta-l">语义化的HTML在没有CSS的情况下也能呈现较好的内容结构与代码结构</li>
                 <li class="fragment fs-14 texta-l">方便其他设备的解析</li>
                 <li class="fragment fs-14 texta-l">便于团队开发和维护</li>
@@ -38,29 +39,32 @@
         </section>
         <section>
             <h3>一些常见的易混淆的标签</h3>
-            <section>
+            <section class="texta-l">
                 <p>i 标签</p>
                 <i>i标签效果，i标签通常表示因为某种原因和正常文本不同的文本，例如专业术语、外语短语或排版用的文字。通常表现为斜体。</i>
             </section>
-            <section>
+            <section class="texta-l">
                 <p>em 标签</p>
                 <em>em标签效果。em表示强调的文本。视觉上也是斜体的效果。</em>
             </section>
-            <section>
+            <section class="texta-l">
                 <p>strong 标签</p>
                 <strong>strong标签效果。以加粗的形式展现。表示这个文本的重要性，在HTML4中表示特别强调，HTML5中描述为“strong importance for its contents”</strong>
             </section>
-            <section>
+            <section class="texta-l">
                 <p>b 标签</p>
-                <b>b标签效果。表示的文本风格不同于正常的文本，没有表达任何特殊的重要性和相关性。通常用于关键字回顾，回顾中的产品名称或者是其他需要表现为粗体的文本。另一个例子是标志每个段落的lead sentence。</b>
+                <b class="texta-l">b标签效果。表示的文本风格不同于正常的文本，没有表达任何特殊的重要性和相关性。通常用于关键字回顾，回顾中的产品名称或者是其他需要表现为粗体的文本。
+                     <!-- 另一个例子是标志每个段落的lead sentence。 -->
+                </b>
             </section>
         </section>
-        <section>
+        <!-- <section>
                 <h3>这些标签的区别</h3>
                <section>
                     <p>em vs i</p>
                     <p class="texta-l">虽然em标签也是显示为斜体的效果，但不能说因为效果一样就使用i标签来代替em标签。因为二者表示的含义不同。<br>
-                        举个例子。em标签：just do it already! <br>
+                        举个例子。em标签：just <em>do</em> it already!
+                        <br>
                         那么一个人或者一个软件在读这句话时，就会以强调加重的语气来读do这个单词。<br>
                         对于i标签：The word the is an article。那么在这句话中斜体并没有强调的语气。只是表明the是一个article，而不是我们平时的冠词。
                     </p>           
@@ -73,11 +77,26 @@
                    <p>strong vs b</p>
                    <p class="texta-l">strong 和 b 算是最相似的两个元素了。那么二者之间的差别。strong表示的是一种逻辑状态，而bold表示的是物理状态。逻辑状态是从内容中分离出来，以各种不同的形式来展现，可能你想标记为红色或者下划线或者其他，那么改变strong的属性比改变bold的属性更有意义。因为bold只是making bold，并不做任何重点性强调性的区分。</p>
                </section>
-        </section>
+        </section> -->
         <section>
             <h3>html5 新增的语义标签</h3>
             <section class="texta-l">
-                    在HTML 5出来之前，我们用div来表示页面章节，但是这些div都没有实际意义。（即使我们用css样式的id和class形容这块内容的意义）。这些标签只是我们提供给浏览器的指令，只是定义一个网页的某些部分。但现在，那些之前没“意义”的标签因为因为html5的出现消失了，这就是我们平时说的“语义”。
+                    在HTML 5出来之前，我们用div来表示页面章节，但是这些div都没有实际意义。（即使我们用css样式的id和class形容这块内容的意义）。这些标签只是我们提供给浏览器的指令，只是定义一个网页的某些部分。
+ <!-- 但现在，那些之前没“意义”的标签因为因为html5的出现消失了，这就是我们平时说的“语义”。 -->
+            </section>
+            <section>
+                hgroup元素
+                <p class="texta-l">
+                    hgroup元素代表“网页”或“section”的标题，当元素有多个层级时，该元素可以将h1到h6元素放在其内，譬如文章的主标题和副标题的组合
+                </p>
+            </section>
+            <section>
+                hgroup使用注意：
+                <ul>
+                    <li>如果只需要一个h1-h6标签就不用hgroup</li>
+                    <!-- <li>如果有连续多个h1-h6标签就用hgroup</li> -->
+                    <li>如果有连续多个标题和其他文章数据，h1-h6标签就用hgroup包住，和其他文章元数据一起放入header标签</li>
+                </ul>
             </section>
             <section>
                 header元素
@@ -108,49 +127,20 @@
                 </ul>
             </section>
             <section>
-                hgroup元素
-                <p class="texta-l">
-                    hgroup元素代表“网页”或“section”的标题，当元素有多个层级时，该元素可以将h1到h6元素放在其内，譬如文章的主标题和副标题的组合
-                </p>
-            </section>
-            <section>
-                hgroup使用注意：
-                <ul>
-                    <li>如果只需要一个h1-h6标签就不用hgroup</li>
-                    <li>如果有连续多个h1-h6标签就用hgroup</li>
-                    <li>如果有连续多个标题和其他文章数据，h1-h6标签就用hgroup包住，和其他文章元数据一起放入header标签</li>
-                </ul>
-            </section>
-            <section>
                 nav元素
                 <p class="texta-l">nav元素代表页面的导航链接区域。用于定义页面的主要导航部分。</p>
             </section>
-            <section>
+            <section class="texta-l">
                 nav使用注意：<br>
                 用在整个页面主要导航部分上，不合适就不要用nav元素；
-            </section>
-            <section>
-                aside元素
-                <p class="texta-l">
-                    aside元素被包含在article元素中作为主要内容的附属信息部分，其中的内容可以是与当前文章有关的相关资料、标签、名次解释等。（特殊的section）<br>
-                    在article元素之外使用作为页面或站点全局的附属信息部分。最典型的是侧边栏，其中的内容可以是日志串连，其他组的导航，甚至广告，这些内容相关的页面。
-                </p>
-            </section>
-            <section>
-                aside使用总结：
-                <ul>
-                    <li>aside在article内表示主要内容的附属信息，</li>
-                    <li>在article之外则可做侧边栏，没有article与之对应，最好不用。</li>
-                    <li>如果是广告，其他日志链接或者其他分类导航也可以用</li>
-                </ul>
             </section>
             <section>
                 section元素
                 <p class="texta-l">section元素代表文档中的“节”或“段”，“段”可以是指一篇文章里按照主题的分段；“节”可以是指一个页面里的分组。<br>
                     section通常还带标题，虽然html5中section会自动给标题h1-h6降级，但是最好手动给他们降级</p>
             </section>
-            <section>
-                section使用注意：
+            <section  class="texta-l">
+                section使用注意：<br>
                 一张页面可以用section划分为简介、文章条目和联系信息。不过在文章内页，最好用article。section不是一般意义上的容器元素，如果想作为样式展示和脚本的便利，可以用div。
                 <ul>
                     <li>表示文档中的节或者段；</li>
@@ -172,6 +162,21 @@
                     <li>没有语义的：用div</li>
                 </ul>
             </section>
+            <section>
+                aside元素
+                <p class="texta-l">
+                    aside元素被包含在article元素中作为主要内容的附属信息部分，其中的内容可以是与当前文章有关的相关资料、标签、名次解释等。（特殊的section）
+                    <br> 在article元素之外使用作为页面或站点全局的附属信息部分。最典型的是侧边栏，其中的内容可以是日志串连，其他组的导航，甚至广告，这些内容相关的页面。
+                </p>
+            </section>
+            <section>
+                aside使用总结：
+                <ul>
+                    <li>aside在article内表示主要内容的附属信息，</li>
+                    <li>在article之外则可做侧边栏，没有article与之对应，最好不用。</li>
+                    <li>如果是广告，其他日志链接或者其他分类导航也可以用</li>
+                </ul>
+            </section>
         </section>
         <section>
             写HTML代码时的注意点
@@ -180,7 +185,7 @@
                     尽可能少的使用无语义的标签div和span；
                 </li>
                 <li>
-                    在语义不明显时，既可以使用div或者p时，尽量用p, 因为p在默认情况下有上下间距，对兼容特殊终端有利
+                    在语义不明显，既可以使用div或者p时，尽量用p, 因为p在默认情况下有上下间距，对兼容特殊终端有利
                 </li>
                 <li>
                     不要使用纯样式标签，如：b、font、u等，改用css设置；</li>
