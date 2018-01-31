@@ -1,0 +1,377 @@
+@import "/Alexandria/css/global/global";
+
+.buyer-wrapper {
+    max-width: 1240px;
+    margin: 20px auto 0;
+    padding: 20px;
+    font-size: 14px;
+}
+
+.title-content {
+    max-width: 1020px;
+    padding-left: 220px;
+    margin-bottom: 30px;
+    text-align: center;
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .sub-title {
+        color: #555;
+    }
+}
+
+.buyer-container {
+    position: relative;
+}
+
+.buyer-sidebar {
+    display: inline-block;
+    position: absolute;
+    margin-top: 80px;
+    top: 0;
+    width: 200px;
+    li {
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    .sub-title {
+        color: #222;
+        margin-top: 10px;
+        font-weight: normal;
+    }
+    .active {
+        color: #e64545;
+        .sub-title li.current {
+            color: #e64545;
+        }
+    }
+    &.fixed {
+        position: fixed;
+        top: 20px;
+        margin-top: 0;
+    }
+}
+
+
+.buyer-content {
+    max-width: 1020px;
+    padding-left: 220px;
+    .content {
+        margin-bottom: 20px;
+        padding: 40px;
+        background: #fff;
+        border: 1px solid #f2f4f7;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        .content-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .content-sub-title {
+            color: #888;
+        }
+    }
+}
+
+.guarantee-list {
+    margin-top: 40px;
+    @include clearfix;
+    li {
+        width: 25%;
+        float: left;
+        text-align: center;
+    }
+    .ob-icon {
+        color: #e64545;
+        font-size: 36px;
+    }
+    .list-title {
+        margin: 20px 0 10px;
+    }
+    .list-text {
+        max-width: 160px;
+        color: #888;
+        margin: 0 auto;
+    }
+}
+
+.workflow-list {
+    margin-top: 20px;
+    @include clearfix;
+    li {
+        width: 33.333333333333336%;
+        float: left;
+        text-align: center;
+        position: relative;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .workflow-num {
+        position: absolute;
+        left: 50%;
+        margin-left: -23px;
+        width: 46px;
+        height: 46px;
+        border: 2px solid #ffaaaa;
+        border-radius: 50%;
+        line-height: 46px;
+        color: #2f1619;
+        font-size: 24px;
+        background-color: #fff;
+        z-index: 1;
+    }
+    .workflow-title {
+        margin: 23px auto 0;
+        max-width: 240px;
+        min-height: 70px;
+        background-color: #ffaaaa;
+        border-radius: 5px 5px 0 0;
+        padding: 0 10px;
+        box-sizing: border-box;
+        span {
+            display: inline-block;
+            margin-top: 27px;
+        }
+    }
+    .workflow-text {
+        margin: 0 auto;
+        max-width: 220px;
+        padding: 10px;
+        background: #f5f7fa;
+        color: #888;
+    }
+}
+
+.shipping-tab {
+    position: relative;
+    .shipping-title {
+        width: 20%;
+        position: absolute;
+        top: 20px;
+        border-bottom: 2px solid #dae0e5;
+        padding-bottom: 10px;
+        text-align: center;
+        text-align: -webkit-center;
+        cursor: pointer;
+    }
+
+    .current {
+        .shipping-title {
+            border-bottom: 2px solid #e64545;
+            color: #e64545;
+            height: auto;
+            font-weight: normal;
+            margin-bottom: -2px;
+            text-align: center;
+            text-align: -webkit-center;
+            padding-bottom: 10px;
+        }
+    }
+    .shipping-menu {
+        font-size: 12px;
+        height: 42px;
+        vertical-align: bottom;
+        display: table-cell;
+        text-align: center;
+        i {
+            display: none;
+        }
+    }
+    &.li-5 .shipping-title {
+        width: 20%;
+    }
+    &.li-4 .shipping-title {
+        width: 25%;
+    }
+    @for $i from 1 through 5 {
+        .shipping-title-#{$i} {
+            left: percentage( ($i - 1) * 20 / 100);
+        }
+    }
+    @for $i from 6 through 9 {
+        .shipping-title-#{$i} {
+            left: percentage( ($i - 6) * 25 / 100);
+        }
+    }
+}
+
+.shipping-content {
+    display: none;
+    padding-top: 72px;
+    .shipping-text {
+        margin-top: 20px;
+        color: #888;
+    }
+    .shipping-gray-text {
+        color: #888;
+    }
+    .shipping-list {
+        list-style: disc;
+        margin-left: 16px;
+        li {
+            margin-top: 20px;
+        }
+        .shipping-step {
+            color: #888;
+        }
+        .in-middle {
+            margin-top: 20px;
+        }
+        .img-wrapper {
+            margin-top: 10px;
+            border: 1px solid #e6ecf2;
+            img {
+                max-width: 100%;
+                vertical-align: middle;
+            }
+        }
+        .computer {
+            display: block;
+        }
+        .phone {
+            display: none;
+        }
+    }
+    &.shipping-active {
+        display: block;
+    }
+}
+
+//this for menu
+@media screen and (max-width: 1090px) {
+    .li-5.shipping-tab .shipping-menu {
+        height: 63px;
+    }
+    .li-5 .shipping-content {
+        padding-top: 93px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .buyer-sidebar {
+        display: none;
+    }
+    .title-content {
+        padding: 0;
+    }
+    .buyer-content {
+        padding-left: 0;
+    }
+    .li-5.shipping-tab .shipping-menu,
+    .li-4.shipping-tab .shipping-menu {
+        height: 42px;
+    }
+    .li-5 .shipping-content {
+        padding-top: 72px;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .li-5.shipping-tab .shipping-menu {
+        height: 63px;
+    }
+    .li-5 .shipping-content {
+        padding-top: 93px;
+    }
+}
+
+//this is in phone
+@media screen and (max-width: 768px) {
+    .buyer-wrapper {
+        padding: 0;
+    }
+    .buyer-content .content {
+        padding: 40px 20px;
+    }
+    .guarantee-list {
+        li {
+            width: 50%;
+            height: 220px;
+        }
+        .list-text {
+            font-size: 12px;
+        }
+    }
+    .workflow-list li {
+        width: 50%;
+    }
+    .li-5 .shipping-content,
+    .li-4 .shipping-content {
+        padding-top: 0;
+        margin-bottom: 20px;
+    }
+    .shipping-content  {
+        .shipping-text {
+            margin-top: 0;
+        }
+        .shipping-list {
+            .img-wrapper {
+                display: none;
+            }
+            .computer {
+                display: none;
+            }
+            .phone {
+                display: inline;
+            }
+        }
+    }
+    .shipping-tab {
+        margin-top: 20px;
+        .shipping-title {
+            position: inherit;
+            border: 0;
+            color: #1470cc;
+        }
+        .current .shipping-title {
+            border: 0;
+            color: #1470cc;
+            cursor: pointer;
+        }
+        &.li-5,
+        &.li-4 {
+            .shipping-title {
+                width: 100%;
+                text-align: left;
+            }
+            .shipping-menu {
+                height: auto;
+                i {
+                    display: inline-block;
+                    -webkit-transition: all 0.5s;
+                    -moz-transition: all 0.5s;
+                    -ms-transition: all 0.5s;
+                    -o-transition: all 0.5s;
+                    transition: all 0.5s;
+                }
+            }
+        }
+        .open .shipping-menu i {
+            -webkit-transform: rotate(-180deg);
+            -moz-transform: rotate(-180deg);
+            -ms-transform: rotate(-180deg);
+            -o-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+        }
+        .shipping-active {
+            display: none;
+        }
+        .shipping-current {
+            display: block;
+        }
+    }
+
+}
+
+@media screen and (max-width: 595px) {
+    .workflow-list li {
+        width: 100%;
+        .workflow-title {
+            max-width: 390px;
+        }
+        .workflow-text {
+            max-width: 370px;
+        }
+    }
+}

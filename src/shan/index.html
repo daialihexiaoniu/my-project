@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .shine {
+            opacity: 0.5;
+        }
+
+        body {
+            background: #222;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="J-shine-wrod">transforms</div>
+    <div class="J-shine-wrod">transforms</div>
+    <div class="J-shine-wrod">transforms</div>
+    <div class="J-shine-wrod">transforms</div>
+
+    <script src="jquery.js"></script>
+    <script src="observe.js"></script>
+    <script src="shineword.js"></script>
+    <script>
+        $(function(){
+            var shineword = new Shineword({
+                items: ".J-shine-wrod",  //默认为".J-shine-wrod"
+                num: 2, //每次随机闪烁字母个数，默认为3
+                speed: 50, //闪烁时间间隔，默认50毫秒
+                shineClass: "shine", //闪烁需要的class,默认为shine
+            });
+
+            shineword.shine(); //开始闪烁，传参指定某个dom
+
+            $(".J-shine-wrod").eq(3).hover(function(){
+                shineword.stopShine($(this)); //停止闪烁，传参指定某个dom
+            },
+            function(){
+                shineword.shine($(this))
+            });
+
+
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content {
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="content"></div>
+    <span class="num"></span>
+    <span class="table-text"></span>
+    <script src="../jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log(123)
+            $('#content').scrollTop( $('#content')[0].scrollHeight );
+        });
+    </script>
+</body>
+</html>
