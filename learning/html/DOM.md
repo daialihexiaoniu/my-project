@@ -17,6 +17,7 @@ DOM: Document Object Module, 文档对象模型。我们通过JavaScript操作�
 
 ## HTML DOM 节点树
 HTML文本会被解析为DOM树, 树中的所有节点均可通过 JavaScript 进行访问。所有 HTML 元素（节点）均可被修改，也可以创建或删除节点。
+
 ![htmltree](./images/ct_htmltree.gif)
 
 ## 节点的关系
@@ -25,8 +26,10 @@ HTML文本会被解析为DOM树, 树中的所有节点均可通过 JavaScript �
 - 每个节点都有父节点、除了根（它没有父节点）
 - 一个节点可拥有任意数量的子
 - 同胞是拥有相同父节点的节点
+
 ![dom_navigate](./images/dom_navigate.gif)
 
 [^_^]:
     参考资料
+[^_^]: 
     https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/learn-dom-tree.html    
