@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        div {
+            position: relative;
+            background-color: #ccc;
+            height: 32px; overflow: visible;
+        }
+        ul#menu, ol {
+            height: 32px; max-width: 80%;
+            overflow: hidden;
+        }
+        ul#menu > li, ol > li {
+            display: block; float: left;
+            height: 32px; width: 120px;
+            padding: 4px 8px;
+        }
+        ol {
+            position: absolute;
+            right: 0; top: 0;
+            overflow: visible;
+        }
+        ol > li { min-width: 120px; }
+
+        ol ul {
+            position: absolute;
+            top: 120%; right: 10%;
+        }
+
+        ol li ul > li {
+            list-style: none;
+            background-color: #eee;
+            border: 1px solid gray;
+            padding: 4px 8px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div>
+    <ul id="menu">
+        <li>Option One</li>
+        <li>Option Two</li>
+        <li>Option Three</li>
+        <li>Option Four</li>
+        <li>Option Five</li>
+        <li>Option Six</li>
+    </ul>
+    <ol>
+        <li>
+            Collected
+            <ul id="submenu"></ul>
+        </li>
+    </ol>
+</div>
+
+<script src="jquery.js"></script>
+<script>
+    var elemWidth, fitCount, fixedWidth = 120,
+        $menu = $("ul#menu"), $collectedSet;
+
+    collect();
+    $(window).resize(collect);
+
+    function collect() {
+        elemWidth = $menu.width();
+        fitCount = Math.floor(elemWidth / fixedWidth) - 1;
+        $collectedSet = $menu.children(":gt(" + fitCount + ")");
+        console.log($collectedSet)
+        $("#submenu").empty().append($collectedSet.clone());
+    }
+
+</script>
+
+</body>
+</html>
