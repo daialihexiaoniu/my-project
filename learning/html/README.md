@@ -53,7 +53,7 @@ Height = height + padding-top + padding-bottom + border-top + border-bottom
 ### padding-box
 布局所占宽度Width：
 ```
-Width = width(包含padding-left + padding-right) + border-top + border-bottom
+Width = width(包含padding-left + padding-right) + border-left + border-right
 ```
 
 布局所占高度Height:
