@@ -1,3 +1,8 @@
+[^_^]:
+    参考资料
+[^_^]: 
+    https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/learn-dom-tree.html    
+
 # 理解DOM结构
 DOM: Document Object Module, 文档对象模型。我们通过JavaScript操作页面的元素，进行添加、移动、改变或移除的方法和属性, 都是DOM提供的。
 
@@ -29,7 +34,40 @@ HTML文本会被解析为DOM树, 树中的所有节点均可通过 JavaScript �
 
 ![dom_navigate](./images/dom_navigate.gif)
 
-[^_^]:
-    参考资料
-[^_^]: 
-    https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/learn-dom-tree.html    
+# 盒模型
+见图： 
+![box-model](./images/box-model.svg)
+
+## 各种元素匡高计算如下：
+### content-box（默认）
+布局所占宽度Width：
+```
+Width = width + padding-left + padding-right + border-left + border-right
+```
+
+布局所占高度Height:
+```
+Height = height + padding-top + padding-bottom + border-top + border-bottom
+```
+
+### padding-box
+布局所占宽度Width：
+```
+Width = width(包含padding-left + padding-right) + border-top + border-bottom
+```
+
+布局所占高度Height:
+```
+Height = height(包含padding-top + padding-bottom) + border-top + border-bottom
+```
+
+### border-box
+布局所占宽度Width：
+```
+Width = width(包含padding-left + padding-right + border-left + border-right)
+```
+
+布局所占高度Height:
+```
+Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
+```
