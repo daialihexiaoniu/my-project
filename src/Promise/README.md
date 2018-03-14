@@ -1,5 +1,6 @@
 # What is promise?
-Promise 是抽象异步处理对象以及对其进行各种操作的组件。<br>Promise 将异步处理和吃力规则进行规范化，并按照采用统一的接口来编写，采取规定方法之外的写法都会出错。
+Promise 是抽象异步处理对象以及对其进行各种操作的组件。<br>
+Promise 将异步处理和吃力规则进行规范化，并按照采用统一的接口来编写，采取规定方法之外的写法都会出错。
 ```
 var promise = getAsyncPromise('file.txt');
 promise.then(function(result) {
@@ -24,7 +25,12 @@ var promise = new Promise(function(resolve, reject) {
 ```
 promise.then(onFulfilled, onRejected)
 ```
-resolve(成功)时  
-  ```onfulFilled``` 会被调用
-reject()  
-  ```onRejected``` 会被调用
+resolve(成功)时<br>
+&nbsp;&nbsp;```onfulFilled``` 会被调用<br>
+reject()  <br>
+&nbsp;&nbsp;```onRejected``` 会被调用<br>
+```onFulfilled``` 、```onRejected``` 两个都为可选参数。<br>
+```promise.then``` 成功和失败时都可以使用。 另外在只想对异常进行处理时可以采用```promise.then(undefined, onRejected)``` 这种方式，只指定reject时的回调函数即可。 不过这种情况下 ```promise.catch(onRejected)``` 应该是个更好的选择。<br>
+3、 Static Method<br>
+包括 ```Promise.all()``` 还有 ```Promise.resolve()``` 等在内，主要都是一些对Promise进行操作的辅助方法。
+page10
