@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clip path</title>
+    <style>
+    .path {
+        background: #ccc;
+        width: 20px;
+        height: 20px;
+        clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    }
+    .path2 {
+        clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    }
+    .path3 {
+        clip-path: polygon(0% 0%, 30% 0%, 30% 40%, 23% 40%, 25% 50%, 15% 40%, 0% 40%);
+    }
+    .path4 {
+        clip-path: polygon(50% 0%, 65% 33%, 100% 33%, 80% 60%, 90% 100%, 50% 75%,10% 100%, 20% 60%, 0 33%, 35% 33%);
+    }
+    .path5 {
+        clip-path: circle(30% at 50% 50%);
+    }
+    .path6 {
+        clip-path: ellipse(20% 20% at 50% 45%);
+    }
+    .path7 {
+        clip-path: ellipse(100% 20% at 50% 45%);
+    }
+    .path8 {
+        clip-path: inset(35% 35% 35% 35% round 0 70% 0 70%);
+    }
+    .path9 {
+        clip-path: polygon(50% 0%, 65% 0%, 100% 0%, 100% 60%, 100% 100%, 50% 100%, 0% 100%,0% 50%,0 33%,0% 0%);
+        transition: all 0.5s;
+    }
+    .path9:hover{
+        clip-path: polygon(50% 0%, 65% 33%, 100% 33%, 80% 60%, 90% 100%, 50% 75%, 10% 100%,20% 60%,0 33%,35% 33%);
+    }
+    .path10 {
+        clip-path: polygon(50% 0%, 65% 0%, 100% 0%, 100% 60%, 100% 100%, 50% 100%, 0% 100%,0% 50%,0 33%,0% 0%);
+        transition: all 0.5s;
+    }
+    .path10:hover{
+        transform:rotate(360deg);
+        clip-path: polygon(50% 0%, 65% 33%, 100% 33%, 80% 60%, 90% 100%, 50% 75%, 10% 100%,20% 60%,0 33%,35% 33%);
+    }
+    </style>
+</head>
+<body>
+    <!-- 小三角形 -->
+    <div class="path"></div>
+    <!-- 三角剪裁 -->
+    <img class="path2" src="http://yunkus.com/wp-content/themes/zxx/images/T900-500.png" alt="">
+    <!-- 对话剪裁 -->
+    <img class="path3" src="http://yunkus.com/wp-content/themes/zxx/images/T900-500.png" alt="">
+    <!-- 星型剪裁 -->
+    <img class="path4" src="http://yunkus.com/wp-content/themes/zxx/images/T900-500.png" alt="">
+    <!-- 圆形剪裁 -->
+    <img class="path5" src="http://yunkus.com/wp-content/themes/zxx/images/T900-500.png" alt="">
+    <!-- 椭圆剪裁 -->
+    <img class="path6" src="http://yunkus.com/wp-content/themes/zxx/images/T900-500.png" alt="">
+    <!-- 椭圆的变形 -->
+    <img class="path7" src="http://yunkus.com/wp-content/themes/zxx/images/T900-500.png" alt="">
+    <!-- 叶子 -->
+    <img class="path8" src="http://yunkus.com/wp-content/themes/zxx/images/T900-500.png" alt="">
+    <!-- 简单变形 -->
+    <img class="path9" src="http://yunkus.com/wp-content/themes/zxx/images/T900-500.png" alt="">
+    <!-- 绚丽转身 -->
+    <img class="path10" src="http://yunkus.com/wp-content/themes/zxx/images/T900-500.png" alt="">
+</body>
+</html>
