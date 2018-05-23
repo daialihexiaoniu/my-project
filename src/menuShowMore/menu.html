@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .wrap .list {
+            height: 800px;
+            background: #dedede;
+        }
+
+        .wrap .list:nth-child(odd) {
+            background: #ccc;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            text-align: center;
+            height: 50px;
+        }
+
+        .menu-list {
+            display: inline;
+        }
+
+        .menu-list li {
+            display: inline;
+
+        }
+        .menu-list li a, .more-list li a{
+            padding: 10px 30px;
+            display: inline-block;
+        }
+        .menu-list .active {
+            color: #f00;
+        }
+
+        .more {
+            display: inline;
+            position: relative;
+        }
+
+        .more-text {
+            display: inline-block;
+        }
+        .more-list {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 50px;
+            background: #fff;
+            box-shadow: 0 5px 5px #666;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+<body>
+<div class="menu J-menu">
+    <ul class="menu-list J-menu-list">
+        <li class="J-scroll">
+            <a>这是第一aaaa个菜单</a>
+        </li>
+        <li class="J-scroll">
+            <a>这是第二个菜单</a>
+        </li>
+        <li class="J-scroll">
+            <a>这是第三cccccccccc个菜单</a>
+        </li>
+        <li class="J-scroll">
+            <a>这是第四个</a>
+        </li>
+        <li class="J-scroll">
+            <a>这是第五个菜单</a>
+        </li>
+        <li class="J-scroll">
+            <a>这是第六ffffffffff个菜单</a>
+        </li>
+        <li class="J-scroll">
+            <a>这是第七个菜单</a>
+        </li>
+        <li class="J-scroll">
+            <a>这是第八个</a>
+        </li>
+    </ul>
+    <div class="more J-more">
+        <div class="more-text">更多</div>
+        <ul class="more-list J-show-more"></ul>
+    </div>
+</div>
+<div class="wrap J-wrap-list">
+    <div class="list">111</div>
+    <div class="list">222</div>
+    <div class="list">333</div>
+    <div class="list">444</div>
+    <div class="list">555</div>
+    <div class="list">666</div>
+    <div class="list">777</div>
+    <div class="list">888</div>
+</div>
+
+<script src="jquery.js"></script>
+<script>
+    $(function () {
+
+        $('.J-menu-list').on('click','li', function () {
+            var $this = $(this);
+            var index = $this.index();
+            var offsetTop = $('.J-wrap-list .list').eq(index).offset().top - 50;
+            $('.J-menu-list li').removeClass('active');
+            $this.addClass('active');
+            $('html,body').animate({scrollTop:offsetTop});
+        });
+
+        $(window).scroll(function () {
+            var scrollTop = $(window).scrollTop();
+            var $menuList = $('.J-menu-list li');
+            var $list = $('.J-wrap-list .list');
+            $menuList.each(function (index,ele) {
+                var $this = $(this);
+                var listOffsetTop = $list.eq(index).offset().top - 100;
+                if(scrollTop > listOffsetTop ){
+                    $menuList.removeClass('active');
+                    $this.addClass('active');
+                }
+            });
+
+            var bh = document.body.scrollHeight - document.documentElement.clientHeight;
+            if (bh - 20 <= scrollTop) {
+                $menuList.removeClass("active");
+                $(".J-menu-list li:last-child").addClass("active");
+            }
+
+
+        });
+
+
+        showMore();
+        $(window).resize(showMore);
+
+    });
+
+    var showMore = function() {
+        var outsideWidth = $(window).width();
+        var menuLength = 0,  insideWidth = 0 , list = [], maxWidth = 0;
+        var $nav = $('.J-menu-list .J-scroll');
+        $nav.each(function (index,ele) {
+            menuLength += $(this).removeClass('hide').width();
+            list.push($(this).width())
+        });
+        maxWidth = Math.max.apply(null, list);
+        console.log('-->outsideWidth', outsideWidth)
+        console.log('-->menuLength', menuLength)
+        if(outsideWidth  <= menuLength) {
+            $('.J-more').css('display', 'inline');
+            $(".J-show-more").empty();
+            $nav.each(function(index,ele) {
+                insideWidth += $(ele).removeClass('hide').width();
+                if(insideWidth > outsideWidth - 70 - maxWidth ) {
+                    $(".J-show-more").append($nav.eq(index).clone().attr('index',index).removeClass('hide'));
+                    $nav.eq(index).addClass('hide');
+                } else {
+                    $nav.eq(index).removeClass('hide');
+                }
+            })
+        } else {
+            $('.J-more').css('display', 'none');
+            $nav.removeClass('hide');
+        }
+    };
+
+</script>
+</body>
+</html>
