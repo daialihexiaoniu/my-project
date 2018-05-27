@@ -38,23 +38,64 @@
         <!-- https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E5%8F%96%E5%BE%97%E9%A1%B9%E7%9B%AE%E7%9A%84-Git-%E4%BB%93%E5%BA%93 -->
         <section data-markdown>
             git clone
+            从Git仓库中复制一个项目
+            如果你熟悉其他的 VCS 比如 Subversion，你可能已经注意到这里使用的是 clone 而不是 checkout。这是个非常重要的差别，Git 收取的是项目历史的所有数据（每一个文件的每一个版本），服务器上有的数据克隆之后本地也都有了。实际上，即便服务器的磁盘发生故障，用任何一个克隆出来的客户端都可以重建服务器上的仓库，回到当初克隆时的状态（虽然可能会丢失某些服务器端的挂钩设置，但所有版本的数据仍旧还在，有关细节请参考第四章）
 
+            克隆仓库的命令格式为 git clone [url]。比如，要克隆 Ruby 语言的 Git 代码仓库 Grit，可以用下面的命令：
+            $ git clone git://github.com/schacon/grit.git   
+            如果希望在克隆的时候，自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：
+            $ git clone git://github.com/schacon/grit.git mygrit
+        </section>
+        <section>
+            请记住，工作目录下面的所有文件都不外乎这两种状态：已跟踪或未跟踪。已跟踪的文件是指本来就被纳入版本控制管理的文件，在上次快照中有它们的记录，工作一段时间后，它们的状态可能是未更新，已修改或者已放入暂存区。而所有其他文件都属于未跟踪文件。它们既没有上次更新时的快照，也不在当前的暂存区域。初次克隆某个仓库时，工作目录中的所有文件都属于已跟踪文件，且状态为未修改。
         </section>
         <section data-markdown>
             git init
             在目录中初始化新仓库，初始化后会在目录中出现一个 .git 的目录，所有Git需要的数据和资源都存放在这个目录中。
         </section>
         <section data-markdown>
+            git status
+            要确定哪些文件当前处于什么状态，可以用 git status 命令。如果在克隆仓库之后立即执行此命令，会看到类似这样的输出：
+            $ git status
+            On branch master
+            nothing to commit, working directory clean
+
+            $ git status
+            On branch master
+            Untracked files:
+            (use "git add <file>..." to include in what will be committed)
+
+                    README
+
+            nothing added to commit but untracked files present (use "git add" to track)
+            在状态报告中可以看到新建的README文件出现在“Untracked files”下面。未跟踪的文件意味着Git在之前的快照（提交）中没有这些文件；Git 不会自动将之纳入跟踪范围，除非你明明白白地告诉它“我需要跟踪该文件”，因而不用担心把临时文件什么的也归入版本管理。不过现在的例子中，我们确实想要跟踪管理 README 这个文件。
+
+            只要在 “Changes to be committed” 这行下面的，就说明是已暂存状态。如果此时提交，那么该文件此时此刻的版本将被留存在历史记录中。你可能会想起之前我们使用 git init 后就运行了 git add 命令，开始跟踪当前目录下的文件。在 git add 后面可以指明要跟踪的文件或目录路径。如果是目录的话，就说明要递归跟踪该目录下的所有文件。（译注：其实 git add 的潜台词就是把目标文件快照放入暂存区域，也就是 add file into staged area，同时未曾跟踪过的文件标记为需要跟踪。这样就好理解后续 add 操作的实际意义了。）
+
+            文件 benchmarks.rb 出现在 “Changes not staged for commit” 这行下面，说明已跟踪文件的内容发生了变化，但还没有放到暂存区。要暂存这次更新，需要运行 git add 命令（这是个多功能命令，根据目标文件的  yh99999u7 g,,,,,状态不同，此命令的效果也不同：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等）。现在让我们运行 git add 将 b .vzs cx  enchmarks.rb 放到暂存区，然后再看看 git status 的输出：
+
+
+            怎么回事？ benchmarks.rb 文件出现了两次！一次算未暂存，一次算已暂存，这怎么可能呢？好吧，实际上 Git 只不过暂存了你运行 git add 命令时的版本，如果现在提交，那么提交的是添加注释前的版本，而非当前工作目录中的版本。所以，运行了 git add 之后又作了修订的文件，需要重新运行 git add 把最新版本重新暂存起来：
+        </section>
+        <section data-markdown>
             git add 
+            使用命令 git add 开始跟踪一个新文件。
+            
+        </section>
+        <section data-markdown>
+            git commit 
+
         </section>
         <section data-markdown>
             git mv 
+            移动文件
         </section>
         <section data-markdown>
             git reset
         </section>
         <section data-markdown>
             git rm
+            移除文件
         </section>
         <section data-markdown>
             git bisect
@@ -68,20 +109,17 @@
         <section data-markdown>
             git show
         </section>
-        <section data-markdown>
-            git status
-        </section>
+        
         <section data-markdown>
             git branch
         </section>
         <section data-markdown>
             git checkout
         </section>
-        <section data-markdown>
-            git commit 
-        </section>
+        
         <section data-markdown>
             git diff 
+            查看差别
         </section>
         <section data-markdown>
             git merge

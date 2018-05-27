@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/solarized.css">
+    <title>Git</title>
+    <style>
+        code {
+            color: #ff3939;
+            background: #ffe1e1;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-markdown>
+            ## Git
+            <!-- 生成ssh key   https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5  -->
+        </section>
+        <section data-markdown>
+            ### Git 和 Github 的区别
+            * Git 是一个免费、开源的分布式版本控制系统
+            * Github 是用 Git 做版本控制的代码托管平台
+        </section>
+        <section data-markdown>
+            ### Git 和 SVN 的区别
+            * Git 和 SVN 都是版本控制系统，两者最主要的区别是：Git 是分布式版本控制系统，而 SVN 是集中式版本控制系统。
+            <!-- 通过 Git 下载之后本地是一个完整的代码仓库，在没有网络的情况下也可以查看log等情况，而 SVN 则需要网络才能查看。 -->
+            * Git 把内容按照元数据存储，而 SVN 按文件方式存储。
+            * Git 的分支和 SVN 的分支不同：Git 的分支相对比较简单，很容易发现未合并的分支，而 SVN 需要手动运行代码来确认代码是否被合并。
+        </section>
+        <section data-markdown>
+            ### Git 的一些常用命令操作
+            ```git clone <版本库的网址>  ```从 Git 仓库中克隆一个项目。
+            ![git clone](./img/git-01.png)
+            ![git clone](./img/git-02.png)
+
+            ```git clone <版本库的网址> <本地目录名>```  
+            ![git clone](./img/git-03.png)
+
+            <!-- 克隆下来的项目将是整个代码库，服务器上有的代码本地也都有。即使服务磁盘发生故障，用任何一个克隆龙出来的客户端都能重建服务器上的仓库，回到克隆时的状态。 -->
+        </section>
+        <section data-markdown>
+            ### Git 的一些常用命令操作
+            ```git init``` 在目录中初始化新仓库，初始化后会在目录中出现一个 .git 的目录，所有Git需要的数据和资源都存放在这个目录中。
+
+            ![git init](./img/git-04.png)
+            ![git init](./img/git-05.png)
+            ![git init](./img/git-06.png)
+            <!-- 这个是针对没有现有仓库的情况时使用的。如果在github上已经有了仓库的话就不再需要git init -->
+        </section>
+        <section data-markdown>
+            ### Git 的一些常用命令操作
+            ```git status``` 查看文件处于什么状态。
+            ![git init](./img/git-07.png)
+            ![git init](./img/git-08.png)
+        </section>
+        <!-- <section data-markdown>
+            ### git库所在的文件夹中的文件大致有4种状态
+            * Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.
+
+            * Unmodify: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为Modified. 如果使用git rm移出版本库, 则成为Untracked文件
+
+            * Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过git add可进入暂存staged状态, 使用git checkout 则丢弃修改过, 返回到unmodify状态, 这个git checkout即从库中取出文件, 覆盖当前修改
+
+            * Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified
+        </section> -->
+        <section data-markdown>
+            ### Git 的一些常用命令操作
+            ```git add [path] ```  将要提交的文件的信息添加到索引库中。
+
+            ![git init](./img/git-10.png)
+
+            ```git add -u [path]``` 把[path]中所有跟踪文件中被修改过或已删除文件的信息添加到索引库。它不会处理那些不被跟踪的文件。
+
+            <!-- ```git add -i ``` 命令查看中被所有修改过或已删除文件但没有提交的文件。按 q 退出 -->
+
+            
+            <!-- git add -u  实例 图片 ![git init](./img/git-09.png) -->
+            
+            <!-- 它只在运行git add命令时添加指定文件的内容; 如果希望随后的更改包含在下一个提交中，那么必须再次运行git add将新的内容添加到索引。 -->
+        </section>
+        <section data-markdown>
+            ### Git 的一些常用命令操作
+            ```git commit```将索引的当前内容与描述更改的用户和日志消息一起存储在新的提交中。
+            <!-- (这个提交只针对本地仓库)，没有push时远端仓库并不会记录信息 -->
+
+            ```git commit -m "[commit message]"```
+            ![git init](./img/git-11.png)
+
+            <!-- ```git commit -a``` # 会先把所有已经track的文件的改动`git add`进来 -->
+        </section>
+        <section data-markdown>
+            ### Git 的一些常用命令操作
+            ```git rm```命令用于从工作区和索引中删除文件。
+            ![git init](./img/git-14.png)
+        </section>
+        <section data-markdown>
+            ### Git 的一些常用命令操作
+            ```git diff```命令用于显示提交和工作树等之间的更改。此命令比较的是工作目录中当前文件和暂存区域快照之间的差异,也就是修改之后还没有暂存起来的变化内容。
+            ![git init](./img/git-12.png)
+            <!-- ![git init](./img/git-13.png) -->
+            <!-- https://www.yiibai.com/git/git_diff.html -->
+        </section>
+        <section data-markdown>
+            ### Git 的一些常用命令操作
+            ```git branch```命令用于列出，创建或删除分支。
+            ![git init](./img/git-15.png)
+        </section>
+        <section data-markdown>
+            ### Git 的一些常用命令操作
+            ```git pull```用于拉取远端仓库的代码。
+            
+            ```git push```用于将本地分支的更新，推送到远程主机。
+
+            <!-- ```git fetch```用于从另一个存储库下载对象和引用。
+            ```git merge```用于将两个或两个以上的开发历史加入(合并)一起。 -->
+        </section>
+        <section data-markdown>
+            ### Git 的一些常用命令操作
+            ```git reset```用于将当前HEAD复位到指定状态。一般用于撤消之前的一些操作
+
+            <!-- https://www.yiibai.com/git/git_reset.html -->
+
+            ```git log```用于显示提交日志信息。
+            
+            ```git stash```命令用于将更改储藏在脏工作目录中。(读取 git stash pop)
+
+            <!-- git remote -->
+        </section>
+    </div>
+</div>
+
+    <script src="../js/reveal.js"></script>
+    <script src="../plugin/markdown/marked.js"></script>
+    <script src="../plugin/markdown/markdown.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            width: 1280
+        })
+    </script>
+</body>
+</html>
