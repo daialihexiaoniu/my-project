@@ -59,8 +59,17 @@
         // let [foo] = undefined;
         // let [foo] = null;
         // let [foo] = {};
-        
-        // foo // true
+        // iterable 是遍历器，是一种机制。为不同的数据结构提供统一的返回机制。
+        // 原生具备 Iterator 接口的数据结构如下。
+        // Array
+        // Map
+        // Set
+        // String
+        // TypedArray
+        // 函数的 arguments 对象
+        // NodeList 对象
+
+        // 数组解构默认值
         // let [foo = true] = [];
         // console.log("foo--->", foo)
 
@@ -124,7 +133,7 @@
         // p: [
         //     'Hello',
         //     { y: 'World' }
-        // ]
+        //  ]
         // };
 
         // let { p: [x, { y }] } = obj;
@@ -147,8 +156,8 @@
 
         // let { loc, loc: { start }, loc: { start: { line }} } = node;
         // console.log("line--->", line) 
-        // console.log("loc--->", loc) 
         // console.log("start--->", start)
+        // console.log("loc--->", loc) 
 
         // // 嵌套复制
         // let obj = {};
@@ -179,7 +188,7 @@
 
         // 解构失败
         // let {foo} = {bar: 'baz'};
-        // let {foo: {bar}} = {baz: 'baz'};
+        // let {foo: {bar}} = {bar: 'bar'};
 
         // let x;
         // {x} = {x: 1};
@@ -210,10 +219,16 @@
 
 
         // 数值和布尔值的解构赋值
-        // let {toString: s} = 123;
+        // let {toString: s} = 123;  
+        // Number.prototype.toString
 
         // let {toString: s} = true;
+        // Bollean.prototype.toString
 
+        // let { prop: x } = undefined; 
+        // let { prop: y } = null; 
+
+        // 函数参数解构
         // function add([x, y]){
         //     return x + y;
         // }
